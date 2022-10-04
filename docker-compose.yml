@@ -56,7 +56,14 @@ services:
       OPENSEARCH_HOSTS: '["https://opensearch-node1:9200","https://opensearch-node2:9200"]'
     networks:
       - opensearch-net
-
+  graphapi:
+      image: graphapi
+      build: 
+        context: .
+      networks:
+          - opensearch-net
+      ports:
+        - 5001:5001
 volumes:
   opensearch-data1:
   opensearch-data2:

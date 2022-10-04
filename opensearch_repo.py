@@ -9,12 +9,10 @@ class opensearch_repo(graph_index_repo):
     index = 'index-hgraph'
     
     def __init__(self):
-        host = 'localhost'
-        port = 9200
         auth = ('admin', 'admin') # For testing only. Don't store credentials in code.
         ca_certs_path = './root-ca.pem'
         self.os_client = OpenSearch(
-                hosts = [{'host': host, 'port': port}],
+                hosts = [{'host': 'opensearch-node1', 'port': 9200}],
                 http_compress = True, 
                 http_auth = auth,
                 use_ssl = True,
